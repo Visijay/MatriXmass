@@ -25,15 +25,23 @@
             z-index: 1;
             text-align: center;
             padding: 20px;
+            backdrop-filter: blur(5px);
         }
         h1, h2, p {
             margin: 0;
             padding-bottom: 10px;
+            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+            transition: transform 0.3s, text-shadow 0.3s;
+        }
+        h1:hover, h2:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
         }
         #slideshow {
             max-width: 100%;
             height: auto;
             margin: 20px 0;
+            transition: opacity 0.5s ease-in-out;
         }
     </style>
 </head>
@@ -91,11 +99,16 @@
         const totalImages = 11;
 
         function rotateImages() {
-            currentImageIndex++;
-            if (currentImageIndex >= totalImages) {
-                currentImageIndex = 0;
-            }
-            document.getElementById("slideshow").src = (currentImageIndex + 1) + '.jpeg';
+            const slideshow = document.getElementById("slideshow");
+            slideshow.style.opacity = 0; // Fade out
+            setTimeout(() => {
+                currentImageIndex++;
+                if (currentImageIndex >= totalImages) {
+                    currentImageIndex = 0;
+                }
+                slideshow.src = (currentImageIndex + 1) + '.jpeg';
+                slideshow.style.opacity = 1; // Fade in
+            }, 500); // Wait for fade out to complete
         }
 
         setInterval(rotateImages, 3000); // Change image every 3 seconds
