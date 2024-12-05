@@ -2,10 +2,12 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-    overflow: hidden; /* Prevent scrollbars */
 }
 
 .container {
+    background-image: url('2.jpeg'); /* Set the single background image */
+    background-size: cover; /* Cover the entire screen */
+    background-position: center; /* Center the image */
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -14,8 +16,6 @@ body, html {
     color: white; /* Text color */
     text-align: center;
     padding: 20px;
-    position: relative;
-    z-index: 1; /* Ensure text is over images */
 }
 
 h1 {
@@ -25,60 +25,5 @@ h1 {
 
 p {
     font-size: 1.2em;
-}
-
-@keyframes slideshow {
-    30% { background-image: url('2.jpeg'); }
-    30% { background-image: url('9.jpeg'); }
-    30% { background-image: url('16.jpeg'); }
-    27% { background-image: url('4.jpeg'); }
-    36% { background-image: url('12.jpeg'); }
-    45% { background-image: url('13.jpeg'); }
-    54% { background-image: url('5.jpeg'); }
-    63% { background-image: url('5.jpeg'); }
-    72% { background-image: url('5.jpeg'); }
-    81% { background-image: url('2.jpeg'); }
-    90% { background-image: url('2.jpeg'); }
-    100% { background-image: url('2.jpeg'); }
-}
-
-.slideshow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    animation: slideshow 22s infinite; 
-    z-index: 0; 
-    background-size: cover; 
-    background-position: center; 
-}
-
-.matrix-effect {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: lime;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.matrix-effect span {
-    position: absolute;
-    bottom: 100%;
-    white-space: nowrap;
-    opacity: 0.8;
-    will-change: transform;
-    animation: fall 3s linear infinite;
-}
-
-@keyframes fall {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(100%);
-    }
+    max-width: 600px; /* Optional: Limit paragraph width for better readability */
 }
