@@ -37,17 +37,17 @@
             transform: scale(1.05);
             text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
         }
-        #slideshow {
-            max-width: 12%; /* Reduced size for 80% smaller image */
+        #top-image {
+            max-width: 12%; /* Adjusted size for the image */
             height: auto;
             margin: 20px 0;
-            transition: opacity 0.5s ease-in-out;
         }
     </style>
 </head>
 <body>
     <canvas class="matrix-canvas"></canvas>
     <div class="content">
+        <img id="top-image" src="1.jpeg" alt="Top Image"> <!-- Static Image at the Top -->
         <h1>Matri(X)Mass - Meme Solana Coin</h1>
         <p>The next big meme coin on Solana</p>
         <h2>Total Supply</h2>
@@ -56,7 +56,6 @@
         <p>Fair Launch on PumpFun</p>
         <h2>About Matri(X)Mass</h2>
         <p>Matri(X)Mass is the new hype of this Christmas month, blending the epic theme of the Matrix with the festive energy of Christmas. Join the revolution and be part of the next big meme sensation on Solana!</p>
-        <img id="slideshow" src="1.jpeg" alt="Slideshow Image">
     </div>
 
     <script>
@@ -93,25 +92,6 @@
         }
 
         setInterval(draw, 33);
-
-        // Slideshow Logic
-        let currentImageIndex = 0;
-        const totalImages = 22; // Updated to 22 images
-
-        function rotateImages() {
-            const slideshow = document.getElementById("slideshow");
-            slideshow.style.opacity = 0; // Fade out
-            setTimeout(() => {
-                currentImageIndex++;
-                if (currentImageIndex >= totalImages) {
-                    currentImageIndex = 0;
-                }
-                slideshow.src = (currentImageIndex + 1) + '.jpeg'; // Updates to display the correct image
-                slideshow.style.opacity = 1; // Fade in
-            }, 500); // Wait for fade out to complete
-        }
-
-        setInterval(rotateImages, 3000); // Change image every 3 seconds
     </script>
 </body>
 </html>
